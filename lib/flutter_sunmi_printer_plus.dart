@@ -222,7 +222,7 @@ class SunmiPrinter {
     }
   }
 
-  static Future<bool> openCashBox() async {
+  static Future<void> openCashBox() async {
     try {
       await _channel.invokeMethod('openCashBox');
     } catch (err) {
