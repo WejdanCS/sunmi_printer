@@ -177,4 +177,56 @@ class SunmiPrinter {
       rethrow;
     }
   }
+
+  static Future<void> disconnect() async {
+    try {
+      await _channel.invokeMethod('disconnect');
+    } catch (err) {
+      rethrow;
+    }
+  }
+
+  static Future<String> getPrinterSerialNo() async {
+    try {
+      String serialNo = await _channel.invokeMethod('getPrinterSerialNo');
+      return serialNo;
+    } catch (err) {
+      rethrow;
+    }
+  }
+
+  static Future<String> getPrinterPaper() async {
+    try {
+      String paper = await _channel.invokeMethod('getPrinterPaper');
+      return paper;
+    } catch (err) {
+      rethrow;
+    }
+  }
+
+  static Future<bool> isBlackLabelMode() async {
+    try {
+      bool isBlack = await _channel.invokeMethod('isBlackLabelMode');
+      return isBlack;
+    } catch (err) {
+      rethrow;
+    }
+  }
+
+  static Future<bool> isLabelMode() async {
+    try {
+      bool isLabelMode = await _channel.invokeMethod('isLabelMode');
+      return isLabelMode;
+    } catch (err) {
+      rethrow;
+    }
+  }
+
+  static Future<bool> openCashBox() async {
+    try {
+      await _channel.invokeMethod('openCashBox');
+    } catch (err) {
+      rethrow;
+    }
+  }
 }

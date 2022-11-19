@@ -83,14 +83,14 @@ public class SunmiPrintHelper {
         }
     }
 
-    private boolean isUnbindingPrinter()  {
+    private boolean isUnbindingPrinter() {
         return sunmiPrinterService == null;
 
     }
 
 
     public void setFontSize(float fontSize) {
-//        if (isUnbindingPrinter()) return;
+        if (isUnbindingPrinter()) return;
         try {
             sunmiPrinterService.setFontSize(fontSize, null);
         } catch (RemoteException e) {
@@ -100,22 +100,22 @@ public class SunmiPrintHelper {
 
 
     public void setBold(boolean isBold) {
-//        if (isUnbindingPrinter()) return;
+        if (isUnbindingPrinter()) return;
 
 
-            try {
-                if (isBold) {
+        try {
+            if (isBold) {
 
 
-                    sunmiPrinterService.sendRAWData(ESCUtil.boldOn(), null);
+                sunmiPrinterService.sendRAWData(ESCUtil.boldOn(), null);
 
 
-                } else {
-                    sunmiPrinterService.sendRAWData(ESCUtil.boldOff(), null);
-                }
-            } catch (RemoteException remoteException) {
-                remoteException.printStackTrace();
+            } else {
+                sunmiPrinterService.sendRAWData(ESCUtil.boldOff(), null);
             }
+        } catch (RemoteException remoteException) {
+            remoteException.printStackTrace();
+        }
 
     }
 
@@ -124,18 +124,18 @@ public class SunmiPrintHelper {
         if (isUnbindingPrinter()) return;
 
 
-            try {
-                if (isBold) {
+        try {
+            if (isBold) {
 
-                    sunmiPrinterService.sendRAWData(ESCUtil.underlineWithOneDotWidthOn(), null);
+                sunmiPrinterService.sendRAWData(ESCUtil.underlineWithOneDotWidthOn(), null);
 
 
-                } else {
-                    sunmiPrinterService.sendRAWData(ESCUtil.underlineOff(), null);
-                }
-            } catch (RemoteException remoteException) {
-                remoteException.printStackTrace();
+            } else {
+                sunmiPrinterService.sendRAWData(ESCUtil.underlineOff(), null);
             }
+        } catch (RemoteException remoteException) {
+            remoteException.printStackTrace();
+        }
 
     }
 

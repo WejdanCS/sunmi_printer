@@ -163,6 +163,24 @@ public class FlutterSunmiPrinterPlusPlugin implements FlutterPlugin, MethodCallH
         } else if (call.method.equals("cutPaper")) {
             SunmiPrintHelper.getInstance().cutpaper();
             result.success(true);
+        } else if (call.method.equals("disconnect")) {
+            SunmiPrintHelper.getInstance().deInitSunmiPrinterService(context);
+            result.success(true);
+        } else if (call.method.equals("getPrinterSerialNo")) {
+            String serialNo = SunmiPrintHelper.getInstance().getPrinterSerialNo();
+            result.success(serialNo);
+        } else if (call.method.equals("getPrinterPaper")) {
+            String paper = SunmiPrintHelper.getInstance().getPrinterPaper();
+            result.success(paper);
+        } else if (call.method.equals("isBlackLabelMode")) {
+            boolean isBlackMode = SunmiPrintHelper.getInstance().isBlackLabelMode();
+            result.success(isBlackMode);
+        } else if (call.method.equals("isLabelMode")) {
+            boolean isLabelMode = SunmiPrintHelper.getInstance().isLabelMode();
+            result.success(isLabelMode);
+        } else if (call.method.equals("openCashBox")) {
+            SunmiPrintHelper.getInstance().openCashBox();
+            result.success("success");
         } else {
             result.notImplemented();
         }
