@@ -83,7 +83,7 @@ public class SunmiPrintHelper {
         }
     }
 
-    private boolean isUnbindingPrinter() throws Exception {
+    private boolean isUnbindingPrinter()  {
         return sunmiPrinterService == null;
 
     }
