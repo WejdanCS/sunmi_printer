@@ -102,12 +102,7 @@ public class SunmiPrintHelper {
     public void setBold(boolean isBold) {
 //        if (isUnbindingPrinter()) return;
 
-        try {
 
-            sunmiPrinterService.setPrinterStyle(WoyouConsts.ENABLE_BOLD, isBold ?
-                    WoyouConsts.ENABLE : WoyouConsts.DISABLE);
-
-        } catch (RemoteException e) {
             try {
                 if (isBold) {
 
@@ -122,18 +117,12 @@ public class SunmiPrintHelper {
                 remoteException.printStackTrace();
             }
 
-        }
     }
 
 
     public void setUnderline(boolean isBold) {
         if (isUnbindingPrinter()) return;
-        try {
 
-            sunmiPrinterService.setPrinterStyle(WoyouConsts.ENABLE_UNDERLINE, isBold ?
-                    WoyouConsts.ENABLE : WoyouConsts.DISABLE);
-
-        } catch (RemoteException e) {
 
             try {
                 if (isBold) {
@@ -147,7 +136,7 @@ public class SunmiPrintHelper {
             } catch (RemoteException remoteException) {
                 remoteException.printStackTrace();
             }
-        }
+
     }
 
     /**
