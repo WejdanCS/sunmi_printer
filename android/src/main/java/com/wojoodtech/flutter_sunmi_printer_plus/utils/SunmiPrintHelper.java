@@ -90,7 +90,7 @@ public class SunmiPrintHelper {
 
 
     public void setFontSize(float fontSize) throws Exception {
-        if (isUnbindingPrinter()) return;
+//        if (isUnbindingPrinter()) return;
         try {
             sunmiPrinterService.setFontSize(fontSize, null);
         } catch (RemoteException e) {
@@ -100,7 +100,7 @@ public class SunmiPrintHelper {
 
 
     public void setBold(boolean isBold) {
-        if (isUnbindingPrinter()) return;
+//        if (isUnbindingPrinter()) return;
 
         try {
 
