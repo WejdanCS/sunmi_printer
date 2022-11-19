@@ -98,6 +98,15 @@ public class SunmiPrintHelper {
         }
     }
 
+    public void setFontName(String fontName) {
+        if (isUnbindingPrinter()) return;
+        try {
+            sunmiPrinterService.setFontName(fontName, null);
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     public void setBold(boolean isBold) {
         if (isUnbindingPrinter()) return;
