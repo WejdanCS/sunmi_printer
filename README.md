@@ -54,6 +54,20 @@ Then invoke the static `initPrinter` method to initiate sunmi printer .
                               bold: false,
                               align: SunmiPrintAlign.LEFT));
 ```
+#### Get device model
+```dart
+ await flutter_sunmi.SunmiPrinter.getDeviceModel()
+```
+
+#### Get device version
+```dart
+ await flutter_sunmi.SunmiPrinter.getVersion()
+```
+
+#### Set text underline
+```dart
+ await flutter_sunmi.SunmiPrinter.setUnderline(true)
+```
 #### Print image
 ```dart
  await SunmiPrinter.printImage(image: bytes, align: SunmiPrintAlign.CENTER); // bytes as Uint8List
@@ -61,6 +75,8 @@ Then invoke the static `initPrinter` method to initiate sunmi printer .
 
 #### Print table
 ```dart
+ await SunmiPrinter.setBold(false);
+ await SunmiPrinter.setFontSize(24);
  await SunmiPrinter.printTable(cols: [
                   ColumnMaker(text:"test#1" ,align:SunmiPrintAlign.LEFT ,width:5),
                    ColumnMaker(text:"test#2" ,align:SunmiPrintAlign.LEFT ,width: 5),
