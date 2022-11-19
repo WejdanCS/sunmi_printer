@@ -1,11 +1,13 @@
 import 'enums.dart';
 
-class ColumnMaker{
+class ColumnMaker {
   String text;
-  double?width;
+  double? width;
   SunmiPrintAlign? align;
-  ColumnMaker({required this.text,this.width=5,this.align=SunmiPrintAlign.LEFT});
-    //Convert to json
+
+  ColumnMaker({required this.text, this.width = 5, this.align = SunmiPrintAlign.LEFT});
+
+  //Convert to json
   Map<String, String> toJson() {
     int value = 0;
     switch (align) {

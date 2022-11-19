@@ -81,6 +81,72 @@ public class SunmiPrintHelper {
         }
     }
 
+    private boolean isBindingPrinter() {
+        return sunmiPrinterService != null;
+    }
+
+
+    public void setFontSize(float fontSize) {
+        if (isBindingPrinter()) return;
+        try {
+            sunmiPrinterService.setFontSize(fontSize, null);
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    public void setBold(boolean isBold) {
+        if (isBindingPrinter()) return;
+
+        try {
+
+            sunmiPrinterService.setPrinterStyle(WoyouConsts.ENABLE_BOLD, isBold ?
+                    WoyouConsts.ENABLE : WoyouConsts.DISABLE);
+
+        } catch (RemoteException e) {
+            try {
+                if (isBold) {
+
+
+                    sunmiPrinterService.sendRAWData(ESCUtil.boldOn(), null);
+
+
+                } else {
+                    sunmiPrinterService.sendRAWData(ESCUtil.boldOff(), null);
+                }
+            } catch (RemoteException remoteException) {
+                remoteException.printStackTrace();
+            }
+
+        }
+    }
+
+
+    public void setUnderline(boolean isBold) {
+        if (isBindingPrinter()) return;
+        try {
+
+            sunmiPrinterService.setPrinterStyle(WoyouConsts.ENABLE_UNDERLINE, isBold ?
+                    WoyouConsts.ENABLE : WoyouConsts.DISABLE);
+
+        } catch (RemoteException e) {
+
+            try {
+                if (isBold) {
+
+                    sunmiPrinterService.sendRAWData(ESCUtil.underlineWithOneDotWidthOn(), null);
+
+
+                } else {
+                    sunmiPrinterService.sendRAWData(ESCUtil.underlineOff(), null);
+                }
+            } catch (RemoteException remoteException) {
+                remoteException.printStackTrace();
+            }
+        }
+    }
+
     /**
      *  deInit sunmi print service
      */
