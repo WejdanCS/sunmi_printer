@@ -141,4 +141,13 @@ static bool isConnected=false;
     }
 
   }
+
+  static Future<void> openCashDrawer()async{
+    try{
+      await _channel.invokeMethod('openCashDrawer');
+    }catch(err){
+      rethrow;
+    }
+
+  }
 }
