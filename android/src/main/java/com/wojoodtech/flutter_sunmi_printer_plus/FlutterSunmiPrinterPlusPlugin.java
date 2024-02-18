@@ -137,6 +137,10 @@ public class FlutterSunmiPrinterPlusPlugin implements FlutterPlugin, MethodCallH
        SunmiPrintHelper.getInstance().cutpaper();
        result.success(true);
     }
+    else if(call.method.equals("openCashDrawer")){
+       SunmiPrintHelper.getInstance().openCashDrawer();
+       result.success(true);
+    }
     else {
       result.notImplemented();
     }

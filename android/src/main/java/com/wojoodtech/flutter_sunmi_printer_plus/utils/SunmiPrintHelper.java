@@ -151,6 +151,21 @@ public class SunmiPrintHelper {
     }
 
     /**
+     *  Printer opens the cash drawer and throws exception on machines without a cutter
+     */
+    public void openCashDrawer(){
+        if(sunmiPrinterService == null){
+            //TODO Service disconnection processing
+            return;
+        }
+        try {
+            sunmiPrinterService.openDrawer(null);
+        } catch (RemoteException e) {
+            handleRemoteException(e);
+        }
+    }
+
+    /**
      *  Initialize the printer
      *  All style settings will be restored to default
      */
